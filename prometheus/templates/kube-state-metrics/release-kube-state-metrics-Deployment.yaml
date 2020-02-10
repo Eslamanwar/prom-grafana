@@ -105,7 +105,7 @@ spec:
 
 
         imagePullPolicy: IfNotPresent
-        image: "quay.io/coreos/kube-state-metrics:v1.9.3"
+        image: "{{ .Values.kube_state_metrics.repository }}:{{ .Values.kube_state_metrics.tag }}"
         ports:
         - containerPort: 8080
         livenessProbe:

@@ -28,15 +28,15 @@ spec:
     spec:
       containers:
         - name: prometheus-operator
-          image: "quay.io/coreos/prometheus-operator:v0.35.0"
+          image: "{{ .Values.prometheusoperator.repository }}:{{ .Values.prometheusoperator.tag }}"
           imagePullPolicy: "IfNotPresent"
           args:
             - --manage-crds=true
             - --kubelet-service=kube-system/release-prometheus-operato-kubelet
             - --logtostderr=true
             - --localhost=127.0.0.1
-            - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.35.0
-            - --config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1
+            - --prometheus-config-reloader={{ .Values.prometheus_config_reloader.repository }}:{{ .Values.prometheus_config_reloader.tag }}
+            - --config-reloader-image={{ .Values.config_reloader_image.repository }}:{{ .Values.config_reloader_image.tag }}
             - --config-reloader-cpu=100m
             - --config-reloader-memory=25Mi
           ports:
@@ -49,7 +49,7 @@ spec:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
         - name: tls-proxy
-          image: squareup/ghostunnel:v1.5.2
+          image: "{{ .Values.tls_proxy.repository }}:{{ .Values.tls_proxy.tag }}"
           imagePullPolicy: IfNotPresent
           args:
             - server

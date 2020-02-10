@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: create
-          image: jettech/kube-webhook-certgen:v1.0.0
+          image: "{{ .Values.admission.repository }}:{{ .Values.admission.tag }}"
           imagePullPolicy: 
           args:
             - create

@@ -3,4 +3,16 @@ global:
 
 default:
   replicas: 1
+
+deployment_image:
+  repository: grafana/grafana
+  tag: 6.5.2
+  pullPolicy: IfNotPresent
+  image_secret_name: ecr-registry
+
+initContainers:
+  repository: kiwigrid/k8s-sidecar
+  tag: 0.1.20
+  pullPolicy: IfNotPresent
+  image_secret_name: ecr-registry
    
