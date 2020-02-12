@@ -12,8 +12,8 @@ metadata:
     release: "release"
     heritage: "Tiller"
 spec:
-  baseImage: quay.io/prometheus/alertmanager
-  version: v0.20.0
+  baseImage: "{{ .Values.alertmanagerimage.repository }}"
+  version: "{{ .Values.alertmanagerimage.tag }}"
   replicas: 1
   listenLocal: false
   serviceAccountName: release-prometheus-operato-alertmanager

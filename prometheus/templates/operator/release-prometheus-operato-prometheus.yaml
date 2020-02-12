@@ -19,8 +19,8 @@ spec:
         port: web
         pathPrefix: "/"
         apiVersion: v2
-  baseImage: quay.io/prometheus/prometheus
-  version: v2.15.2
+  baseImage: "{{ .Values.prometheusimage.repository }}"
+  version: "{{ .Values.prometheusimage.tag }}"
   externalUrl: http://release-prometheus-operato-prometheus.monitoring:9090
   paused: false
   replicas: 1
