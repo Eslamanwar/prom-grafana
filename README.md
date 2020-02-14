@@ -115,13 +115,42 @@ kubectl delete crd alertmanagers.monitoring.coreos.com eniconfigs.crd.k8s.amazon
 
 
 
+# Architecture Design
+
+![](./images/prom2.png)
+
+- Components included in this helm Charts:
+
+  - The Prometheus Operator
+  - Highly available Prometheus
+  - Highly available Alertmanager
+  - Prometheus node-exporter
+  - kube-state-metrics
+  - Grafana
 
 
 
 
+## Access the dashboards
+
+- Promethues
+```
+$ kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090
+Then access via http://localhost:9090
+```
 
 
+- Grafana
+```
+$ kubectl --namespace monitoring port-forward svc/grafana 3000
+Then access via http://localhost:3000
+```
 
+
+## Prometheus Advantages
+- Kubernetes integration—supports service discovery and monitoring of dynamically scheduled services.  
+- Built-in Alertmanager—sends out notifications via a number of methods based on rules that you specify.
+- Pull based metrics—a pull-based monitoring system means that your services don’t have to know where your monitoring system is located. You can simply expose your metric as a HTTP endpoint and Prometheus pulls the metrics from it.
 
 
 
