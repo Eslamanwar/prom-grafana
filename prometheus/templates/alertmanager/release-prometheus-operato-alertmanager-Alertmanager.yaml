@@ -12,8 +12,8 @@ metadata:
     release: "release"
     heritage: "Tiller"
 spec:
-  baseImage: "{{ .Values.alertmanagerimage.repository }}"
-  version: "{{ .Values.alertmanagerimage.tag }}"
+  image: "{{ .Values.alertmanagerimage.repository }}:{{ .Values.alertmanagerimage.tag }}"
+  version: v0.20.0
   replicas: 1
   listenLocal: false
   serviceAccountName: release-prometheus-operato-alertmanager

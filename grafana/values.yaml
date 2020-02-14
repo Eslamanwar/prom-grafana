@@ -5,14 +5,14 @@ default:
   replicas: 1
 
 deployment_image:
-  repository: grafana/grafana
-  tag: 6.5.2
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: grafana
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 initContainers:
-  repository: kiwigrid/k8s-sidecar
-  tag: 0.1.20
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: k8s-sidecar
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
    

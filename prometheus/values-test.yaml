@@ -2,55 +2,55 @@ global:
   env: default
 
 prometheusoperator:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: prometheus-operator
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 tls_proxy:  
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: ghostunnel
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 prometheus_config_reloader:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: prometheus-config-reloader
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 config_reloader_image:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: configmap-reload
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 admission:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: kube-webhook-certgen
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry  
 
 kube_state_metrics:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: kube-state-metrics
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 prometheusimage:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: prometheus
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 alertmanagerimage:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: alertmanager
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry        
 
 nodeexporterimage:
-  repository: 261527745982.dkr.ecr.us-east-1.amazonaws.com/test
+  repository: 804934839242.dkr.ecr.us-east-1.amazonaws.com/test
   tag: node-exporter
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry

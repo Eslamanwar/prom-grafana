@@ -19,8 +19,8 @@ spec:
         port: web
         pathPrefix: "/"
         apiVersion: v2
-  baseImage: "{{ .Values.prometheusimage.repository }}"
-  version: "{{ .Values.prometheusimage.tag }}"
+  image: "{{ .Values.prometheusimage.repository }}:{{ .Values.prometheusimage.tag }}"
+  version: v2.15.2
   externalUrl: http://release-prometheus-operato-prometheus.monitoring:9090
   paused: false
   replicas: 1
