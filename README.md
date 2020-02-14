@@ -64,6 +64,8 @@ docker pull quay.io/coreos/kube-state-metrics:v1.9.3
 docker pull quay.io/prometheus/prometheus:v2.15.2
 docker pull quay.io/prometheus/alertmanager:v0.20.0
 docker pull quay.io/prometheus/node-exporter:v0.18.1
+docker pull grafana/grafana:6.5.2
+docker pull kiwigrid/k8s-sidecar:0.1.20
 
 
 docker tag quay.io/coreos/prometheus-operator:v0.35.0 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:prometheus-operator
@@ -75,6 +77,9 @@ docker tag quay.io/coreos/kube-state-metrics:v1.9.3 261527745982.dkr.ecr.us-east
 docker tag quay.io/prometheus/prometheus:v2.15.2 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:prometheus
 docker tag quay.io/prometheus/alertmanager:v0.20.0 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:alertmanager
 docker tag quay.io/prometheus/node-exporter:v0.18.1 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:node-exporter
+docker tag grafana/grafana:6.5.2 804934839242.dkr.ecr.us-east-1.amazonaws.com/test:grafana
+docker tag kiwigrid/k8s-sidecar:0.1.20 804934839242.dkr.ecr.us-east-1.amazonaws.com/test:k8s-sidecar
+
 
 
 
@@ -87,9 +92,23 @@ docker push 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:kube-state-metrics
 docker push 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:prometheus
 docker push 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:alertmanager
 docker push 261527745982.dkr.ecr.us-east-1.amazonaws.com/test:node-exporter
+docker push 804934839242.dkr.ecr.us-east-1.amazonaws.com/test:grafana
+docker push 804934839242.dkr.ecr.us-east-1.amazonaws.com/test:k8s-sidecar
 
 ```
+```
+export AWS_ACCESS_KEY_ID=AKIA3W2O25PFAFW63XX7
+export AWS_SECRET_ACCESS_KEY=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
+export AWS_REGION=us-east-1
 
+$(aws ecr get-login --no-include-email --region us-east-1)
+
+helm delete --purge release1
+helm delete --purge release2
+
+kubectl delete crd alertmanagers.monitoring.coreos.com eniconfigs.crd.k8s.amazonaws.com podmonitors.monitoring.coreos.com prometheuses.monitoring.coreos.com servicemonitors.monitoring.coreos.com prometheusrules.monitoring.coreos.com
+
+```
 
 
 
