@@ -159,11 +159,22 @@ Then access via http://localhost:3000
 
 
 
+## Prometheus Backup
+- There is 2 ways to backup the Prometheus data
+  - Using kubernetes to create snapshot from your pvc(persitent volume claim)
+  ```
+  cd prometheus-backup
+  kubectl create -f ./VolumeSnapshots.yaml
+  ```
+     this way has its limitation to only new version of k8s (1.17)
 
 
-
-
-
+  - Another way is to use aws
+  ```
+  kubectl get pv
+  kubectl get pv pvc-e51804ec-4fd2-11ea-be6b-0aacc1518097 -o yaml
+  aws ec2 create-snapshot --volume-id vol-096f911f96d39b932 --description "This is volume snapshot"
+  ```
 
 
 
