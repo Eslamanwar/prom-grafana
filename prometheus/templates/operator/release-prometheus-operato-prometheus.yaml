@@ -34,7 +34,16 @@ spec:
   serviceMonitorSelector:
     matchLabels:
       release: "release"
-
+  storage:
+    volumeClaimTemplate:
+      selector: {}
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.prometheus.prometheusSpec.storage }}
+        storageClassName: {{ .Values.prometheus.prometheusSpec.storageClassName }}
   serviceMonitorNamespaceSelector: {}
   podMonitorSelector:
     matchLabels:

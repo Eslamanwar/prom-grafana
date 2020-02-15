@@ -97,8 +97,8 @@ docker push 804934839242.dkr.ecr.us-east-1.amazonaws.com/test:k8s-sidecar
 
 ```
 ```
-export AWS_ACCESS_KEY_ID=AKIA3W2O25PFAFW63XX7
-export AWS_SECRET_ACCESS_KEY=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
+export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxx
 export AWS_REGION=us-east-1
 
 $(aws ecr get-login --no-include-email --region us-east-1)

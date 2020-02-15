@@ -153,6 +153,8 @@ prometheus:
   enabled: true
   prometheusSpec:  
     retention: 30d
+    storage: 10Gi
+    storageClassName: gp2
     
 
 kubeEtcd:
