@@ -43,22 +43,22 @@ spec:
           args:
             - --path.procfs=/host/proc
             - --path.sysfs=/host/sys
-            - --web.listen-address=0.0.0.0:9100
+            - --web.listen-address=0.0.0.0:9500
             - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
             - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$
             
           ports:
             - name: metrics
-              containerPort: 9100
+              containerPort: 9500
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: 9100
+              port: 9500
           readinessProbe:
             httpGet:
               path: /
-              port: 9100
+              port: 9500
           resources:
             {}
             

@@ -2,56 +2,56 @@ global:
   env: default
 
 prometheusoperator:
-  repository: quay.io/coreos/prometheus-operator
-  tag: v0.35.0
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: prometheus-operator
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 tls_proxy:  
-  repository: squareup/ghostunnel
-  tag: v1.5.2
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: ghostunnel
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 prometheus_config_reloader:
-  repository: quay.io/coreos/prometheus-config-reloader
-  tag: v0.35.0
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: prometheus-config-reloader
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 config_reloader_image:
-  repository: quay.io/coreos/configmap-reload
-  tag: v0.0.1
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: configmap-reload
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 admission:
-  repository: jettech/kube-webhook-certgen
-  tag: v1.0.0
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: kube-webhook-certgen
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry  
 
 kube_state_metrics:
-  repository: quay.io/coreos/kube-state-metrics
-  tag: v1.9.3
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: kube-state-metrics
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 prometheusimage:
-  repository: quay.io/prometheus/prometheus
-  tag: v2.15.2
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: prometheus
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
 alertmanagerimage:
-  repository: quay.io/prometheus/alertmanager
-  tag: v0.20.0
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: alertmanager
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry        
 
 nodeexporterimage:
-  repository: quay.io/prometheus/node-exporter
-  tag: v0.18.1
+  repository: 465967067450.dkr.ecr.us-east-1.amazonaws.com/test
+  tag: node-exporter
   pullPolicy: IfNotPresent
   image_secret_name: ecr-registry
 
@@ -153,6 +153,8 @@ prometheus:
   enabled: true
   prometheusSpec:  
     retention: 30d
+    storage: 10Gi
+    storageClassName: gp2
     
 
 kubeEtcd:
