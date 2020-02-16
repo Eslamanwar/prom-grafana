@@ -142,7 +142,7 @@ Then access via http://localhost:9090
 
 - Grafana
 ```
-$ kubectl --namespace monitoring port-forward svc/grafana 3000
+$ kubectl --namespace monitoring port-forward svc/release-grafana 3000:80
 Then access via http://localhost:3000
 ```
 
